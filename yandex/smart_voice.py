@@ -12,7 +12,7 @@ def _text_voice(scenario_id,scenario_name,ftext):
     cookie.load(local_settings.YANDEX_COOKIES2)
     cookies = {k: v.value for k, v in cookie.items()}
     session = requests.session()
-    raw = session.get("https://yandex.ru/quasar", cookies=cookies).text
+    raw = session.get('https://yandex.ru/quasar', cookies=cookies).text
     m = re.search('"csrfToken2":"(.+?)"', raw)
     csrf_token = m[1]
     headers = {
@@ -55,6 +55,10 @@ def _text_voice(scenario_id,scenario_name,ftext):
                 }
             }
         ]
+        ,
+        'notifications': {
+            'push': {}
+        }
     }
     tst = session.put('https://iot.quasar.yandex.ru/m/v3/user/scenarios/' + scenario_id, json=data, headers=headers, cookies=cookies)
     print(tst.text)
