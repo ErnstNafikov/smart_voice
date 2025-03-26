@@ -24,4 +24,4 @@ def _ask(ftext,promt = 'You are a helpful assistant.'):
         out_text = response.json()['choices'][0]['message']['content']
     else:
         out_text = 'Ошибка:' + response.status_code
-    smart_voice._text_voice('3fc2ecdd-b74b-47d2-8008-a20d79f774cc','Deepseek',out_text[:100])
+    return out_text
