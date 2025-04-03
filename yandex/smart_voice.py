@@ -9,7 +9,7 @@ from http.cookies import SimpleCookie
 
 def _text_voice(scenario_id,scenario_name,ftext):
     cookie = SimpleCookie()
-    cookie.load(local_settings.YANDEX_COOKIES2)
+    cookie.load(local_settings.YANDEX_COOKIES)
     cookies = {k: v.value for k, v in cookie.items()}
     session = requests.session()
     raw = session.get('https://yandex.ru/quasar', cookies=cookies).text

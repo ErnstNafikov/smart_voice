@@ -21,13 +21,9 @@ if len(errors) > 0:
 else:
     if len(postgres_m) == 0:
         status_check += ' postgres - отключен,'
-    if len(grafana_m) == 0:
-        status_check += ' grafana - отключен,'
+    # if len(grafana_m) == 0:
+        # status_check += ' grafana - отключен,'
 
 if len(status_check) > 0:
     status_check = 'Время ' + datetime.now().strftime("%H:%M") + status_check
     smart_voice._text_voice('e2cec051-72c8-430e-921a-2ec59e90e59a','Статус системы',status_check[:100])
-else:
-    #status_check = 'Время ' + datetime.now().strftime("%H:%M") + ' все работает корректно'
-    status_check = deepseek._ask('Расскажи анекдот','Ты мой лучший друг итишник')
-    smart_voice._text_voice('3fc2ecdd-b74b-47d2-8008-a20d79f774cc','Deepseek',status_check[:100])

@@ -4,7 +4,6 @@ import requests
 # Добавляем родительскую папку в sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from settings import local_settings
-from yandex import smart_voice
 
 def _ask(ftext,promt = 'You are a helpful assistant.'):
     API_KEY = local_settings.OPENROUTER_KEY
